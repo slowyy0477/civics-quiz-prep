@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Civics &amp; Community Engagement — Quiz Prep (Ch 1 + Ch 2)</title>
+<style>
+  :root{
+    --bg:#0f1216; --card:#171b21; --card2:#1e242c; --line:#2b333d;
+    --fg:#e8edf3; --muted:#9aa7b4; --accent:#4ea1ff; --good:#37c98b; --bad:#ff6b6b; --warn:#ffc857;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--fg);
+    font-family:"Segoe UI",Roboto,system-ui,-apple-system,sans-serif;line-height:1.55}
+  .wrap{max-width:900px;margin:0 auto;padding:18px 16px 60px}
+  h1{font-size:1.28rem;margin:0 0 4px}
+  .sub{color:var(--muted);font-size:.85rem;margin:0 0 14px}
+  nav{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px;
+      position:sticky;top:0;background:var(--bg);padding:8px 0;z-index:5;border-bottom:1px solid var(--line)}
+  nav button{background:var(--card);color:var(--fg);border:1px solid var(--line);
+      padding:7px 13px;border-radius:999px;cursor:pointer;font-size:.86rem}
+  nav button.on{background:var(--accent);border-color:var(--accent);color:#06121f;font-weight:600}
+  section{display:none}
+  section.on{display:block}
+  h2{font-size:1.06rem;margin:22px 0 6px;color:var(--accent)}
+  h3{font-size:.96rem;margin:16px 0 4px}
+  p,li{font-size:.92rem}
+  ul{margin:6px 0 6px 18px;padding:0}
+  li{margin:3px 0}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin:10px 0}
+  .card2{background:var(--card2);border-left:3px solid var(--accent);border-radius:8px;padding:10px 13px;margin:9px 0}
+  .note{border-left:3px solid var(--warn)}
+  .good{border-left:3px solid var(--good)}
+  b.k{color:#ffd479}
+  .pill{display:inline-block;background:var(--card2);border:1px solid var(--line);border-radius:999px;
+        padding:1px 9px;font-size:.75rem;color:var(--muted);margin-right:5px}
+  table{width:100%;border-collapse:collapse;font-size:.88rem;margin:8px 0}
+  th,td{border:1px solid var(--line);padding:6px 9px;vertical-align:top;text-align:left}
+  th{background:var(--card2);color:var(--accent);font-weight:600}
+  /* flashcards */
+  .fc{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:26px 20px;
+      min-height:170px;display:flex;flex-direction:column;justify-content:center;cursor:pointer;text-align:center}
+  .fc .q{font-size:1.06rem;font-weight:600}
+  .fc .a{font-size:.95rem;color:#cfe8ff;margin-top:10px;display:none}
+  .fc.flip .a{display:block}
+  .fc .hint{color:var(--muted);font-size:.75rem;margin-top:14px}
+  .row{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-top:10px}
+  .row button{background:var(--card2);color:var(--fg);border:1px solid var(--line);
+      padding:7px 12px;border-radius:8px;cursor:pointer;font-size:.86rem}
+  .row button:hover{border-color:var(--accent)}
+  .count{color:var(--muted);font-size:.82rem;margin-left:auto}
+  /* quiz */
+  .opt{display:block;width:100%;text-align:left;background:var(--card2);color:var(--fg);
+       border:1px solid var(--line);border-radius:9px;padding:10px 13px;margin:7px 0;cursor:pointer;font-size:.9rem}
+  .opt:hover{border-color:var(--accent)}
+  .opt.right{background:#123726;border-color:var(--good)}
+  .opt.wrong{background:#3a1a1a;border-color:var(--bad)}
+  .fb{margin-top:9px;padding:10px 12px;border-radius:9px;font-size:.87rem;display:none}
+  .fb.on{display:block}
+  .fb.ok{background:#123726;border:1px solid var(--good)}
+  .fb.no{background:#3a1a1a;border:1px solid var(--bad)}
+  .bar{height:7px;background:var(--card2);border-radius:99px;overflow:hidden;margin:8px 0 4px}
+  .bar>i{display:block;height:100%;background:var(--accent);width:0}
+  .score{font-size:1.5rem;font-weight:700}
+  .sa{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 14px;margin:9px 0}
+  .sa .ans{display:none;margin-top:8px;color:#cfe8ff;font-size:.9rem;border-top:1px dashed var(--line);padding-top:8px}
+  .sa.open .ans{display:block}
+  .btn{background:var(--accent);color:#06121f;border:0;border-radius:9px;padding:9px 16px;
+       font-weight:600;cursor:pointer;font-size:.9rem}
+  @media print{nav,.row,.btn{display:none}body{background:#fff;color:#000}
+    .card,.card2,.sa,.fc{border-color:#999}.a,.ans{display:block!important;color:#000}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Civics &amp; Community Engagement — Quiz Prep</h1>
+  <p class="sub">HUM 208 &nbsp;•&nbsp; built from your two decks: <b>Lecture 1</b> (12 slides) + <b>Active Citizenship P2</b> (22 slides) &nbsp;•&nbsp; covers everything the slides contain, including the 4 image-only slides.</p>
+
+  <nav>
+    <button class="on" data-t="map">1 · Exam map</button>
+    <button data-t="learn">2 · Learn</button>
+    <button data-t="cards">3 · Flashcards</button>
+    <button data-t="quiz">4 · Quiz (44 Q)</button>
+    <button data-t="short">5 · Written answers</button>
+    <button data-t="cheat">6 · Cheat sheet</button>
+  </nav>
+
+<!-- ============ MAP ============ -->
+<section id="map" class="on">
+  <h2>What you must be able to do tomorrow</h2>
+  <div class="card">
+    <p><b class="k">Chapter 1 — Introduction to Civics &amp; Community Engagement (Lecture 1)</b><br>
+    <span class="pill">6 ideas</span></p>
+    <ul>
+      <li>Define <b>Civics</b> and say what it examines + the values it promotes.</li>
+      <li>Define <b>Citizenship</b> — rights vs duties, legal status + social contract, and the two types.</li>
+      <li><b>Importance</b> of civic/community engagement (5 points) and <b>5 key concepts in civics</b>.</li>
+      <li><b>Active Citizenship</b> vs <b>Civic Engagement</b> vs <b>Community Engagement</b> — the exam's favourite comparison.</li>
+      <li>The <b>Pakistan example</b>: 1973 Constitution, 18+, General Elections 2024.</li>
+      <li><b>Why a Computer Science student studies civics</b> — 4 reasons.</li>
+    </ul>
+  </div>
+  <div class="card">
+    <p><b class="k">Chapter 2 — Active Citizenship, Civic Engagement &amp; Public Participation (P2)</b><br>
+    <span class="pill">6 ideas</span></p>
+    <ul>
+      <li><b>civil</b> (adjective) vs <b>civics</b> (noun) — straight definition questions.</li>
+      <li><b>Forms of civic engagement</b> + <b>volunteering</b> + <b>advocacy</b> + <b>social activism</b>.</li>
+      <li><b>Case studies of public participation in Pakistan</b> — Lawyers' Movement 2007-09, 2005 earthquake relief, youth-led education reform.</li>
+      <li><b>Role of media</b>: traditional vs social media, functions, challenges.</li>
+      <li><b>Media literacy, media bias, fake news / verification, citizen journalism, digital campaigns</b>.</li>
+      <li><b>Challenges + solutions</b>: censorship, commercialisation, misinformation; independent media in Pakistan.</li>
+    </ul>
+  </div>
+  <div class="card note">
+    <b>Two heads-ups before you revise</b>
+    <ul>
+      <li>The screenshot inside Lecture 1 came from a bigger class deck that also had <b>"Historical Perspectives on Citizenship"</b> and <b>"Contemporary Debates on Citizenship"</b>. Those two slides are <b>not</b> in your files — if the teacher covered them in class, get the notes from a classmate. Everything else in both chapters is below.</li>
+      <li>Lecture 1's slide 11/12 boxes are printed slightly out of order in the deck (headings and examples look shifted). I've paired them the way they are meant to be — learn the pairing, not the slide layout.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ LEARN ============ -->
+<section id="learn">
+  <h2>Chapter 1 — Introduction to Civics &amp; Community Engagement</h2>
+
+  <h3>1. What is Civics?</h3>
+  <div class="card2">
+    <b>Civics</b> = the study of the <b>rights, duties and responsibilities of citizens</b> in relation to the <b>state and society</b>.
+    <ul>
+      <li>It examines how <b>governments operate</b>, how <b>laws are created and enforced</b>, and how <b>individuals and communities contribute to governance and decision-making</b>.</li>
+      <li>It promotes the values of <b>democracy, justice, equality, and active citizenship</b>.</li>
+    </ul>
+  </div>
+
+  <h3>2. What is Citizenship?</h3>
+  <div class="card2">
+    Being a <b>legally recognised member of a country</b>. It is both a <b>legal status</b> and a <b>social contract</b>.
+    <ul>
+      <li><b>Rights:</b> voting, protection by the state.</li>
+      <li><b>Duties:</b> obeying laws, paying taxes.</li>
+      <li>Citizens participate in <b>governance, community life, and the legal system</b> — they influence decisions through voting, public discourse, and participation in local and national governance.</li>
+      <li><b>Types:</b> <b>Birthright</b> citizenship (given by place of birth) vs <b>Naturalised</b> citizenship (granted after fulfilling conditions such as residency and language proficiency).</li>
+    </ul>
+  </div>
+
+  <h3>3. Importance of Civic &amp; Community Engagement (5 points)</h3>
+  <table>
+    <tr><th>Point</th><th>Why</th></tr>
+    <tr><td><b>Strengthens democracy</b></td><td>Citizens' voices are heard → government becomes more representative and accountable.</td></tr>
+    <tr><td><b>Builds stronger communities</b></td><td>Participation builds belonging and solidarity → social cohesion and resilience.</td></tr>
+    <tr><td><b>Empowers citizens</b></td><td>People exercise their rights, advocate for issues, and create positive change.</td></tr>
+    <tr><td><b>Addresses social issues</b></td><td>Collective action tackles social, political and environmental challenges → social justice and equity.</td></tr>
+    <tr><td><b>Encourages civic responsibility</b></td><td>Responsibility towards the <b>common good</b> — contributing positively to society.</td></tr>
+  </table>
+
+  <h3>4. Key concepts in civics (5 points) — learn these definitions word for word</h3>
+  <div class="card2">
+    <ul>
+      <li><b>Citizenship</b> — understanding the rights and responsibilities of citizens in society, including political participation and community service.</li>
+      <li><b>Democracy</b> — system of government where <b>power is vested in the people</b>, who rule either <b>directly</b> or through <b>freely elected representatives</b>.</li>
+      <li><b>Rule of Law</b> — the principle that <b>all members of society, including those in government, are equally subject to the law</b>.</li>
+      <li><b>Civic Virtue</b> — the cultivation of habits important for the success of the community, e.g. <b>honesty, responsibility, respect for others</b>.</li>
+      <li><b>Public Participation</b> — the involvement of citizens in the <b>decision-making processes</b> of government and other public institutions.</li>
+    </ul>
+  </div>
+
+  <h3>5. Active Citizenship (from the slide image)</h3>
+  <div class="card2">
+    <b>Active Citizenship</b> = the involvement of individuals in <b>public life and affairs</b>, at <b>local, national and international</b> levels.
+    <ul>
+      <li>It goes <b>beyond legal status</b>: basic citizenship is about being a member of a state; active citizenship is about <b>proactively contributing</b> to society instead of only following the law.</li>
+      <li>It means proactive involvement in <b>governance, volunteering, activism and social justice</b> — participating in elections, advocacy groups and community service.</li>
+      <li><b>Examples:</b> volunteering at a local charity, attending town-hall meetings, starting a campaign for a local cause.</li>
+    </ul>
+  </div>
+
+  <h3>6. Civic Engagement (from the slide image)</h3>
+  <div class="card2">
+    Actions to <b>address public concerns</b> — <b>broader than active citizenship</b>, covering any action aimed at improving or influencing society (community service, advocacy, even running for office).
+    <ul>
+      <li><b>Forms:</b> voting (influences who represents you), advocacy (pushing policy change), social work (community needs), community organising (mobilising people).</li>
+      <li><b>Importance:</b> strengthens democracy by involving citizens in shaping their societies; promotes <b>inclusivity</b>; addresses <b>social injustices</b>.</li>
+    </ul>
+  </div>
+
+  <h3>7. Community Engagement</h3>
+  <div class="card2">
+    The process of <b>working collaboratively with community groups</b> to address issues that impact the <b>well-being of those groups</b> — building <b>relationships and partnerships</b> to create <b>sustainable change</b>.
+    <ul><li><b>Example:</b> community health workers, NGOs, teachers and local volunteers engage with families to spread awareness, build trust and administer vaccines to children under 5 years.</li></ul>
+  </div>
+
+  <h3>8. Pakistani example — civic engagement in practice</h3>
+  <div class="card2">
+    <ul>
+      <li>Voting in general elections is a key civic responsibility.</li>
+      <li>Under the <b>Constitution of Pakistan (1973)</b>, every adult citizen <b>18 years and above</b> has the <b>right to vote</b>.</li>
+      <li>In the <b>General Elections 2024</b>, millions of Pakistanis voted to elect members of the <b>National Assembly</b> and the <b>Provincial Assemblies</b> — citizens exercised their democratic right and shaped the country's leadership and policies.</li>
+    </ul>
+  </div>
+
+  <h3>9. Why study civics as a subject? (the Computer Science angle — very likely a question)</h3>
+  <table>
+    <tr><th>Reason</th><th>Example given in the slides</th></tr>
+    <tr><td><b>Develop responsible citizenship</b></td><td>Understanding constitutional rights to <b>privacy</b> helps tech students design apps that <b>respect users' data</b>.</td></tr>
+    <tr><td><b>Promote ethical and inclusive technology</b></td><td>A tech student working with rural communities designs <b>Urdu-based mobile apps for farmers</b> instead of only English versions.</td></tr>
+    <tr><td><b>Strengthen problem-solving through social awareness</b></td><td>Before building an <b>e-governance app</b>, students who understand civic structures align features with <b>NADRA, ECP or local government systems</b>.</td></tr>
+    <tr><td><b>Enhance leadership and teamwork</b></td><td>Civic and community projects need teamwork, communication and leadership — the same skills as software development.</td></tr>
+  </table>
+
+  <h2>Chapter 2 — Civic Engagement, Public Participation &amp; Media</h2>
+
+  <h3>1. Civic engagement — the definition to memorise</h3>
+  <div class="card2">
+    The ways in which citizens <b>participate in the political, social and economic life</b> of their communities. It includes <b>individual and collective actions</b> designed to <b>identify and address issues of public concern</b>.
+    <ul>
+      <li>Active civic engagement is <b>essential for the health of a democracy</b>.</li>
+      <li>Engagement can be <b>formal</b> (voting) or <b>informal</b> (volunteering).</li>
+    </ul>
+  </div>
+
+  <h3>2. "Civil" vs "Civics" (guaranteed comparison question)</h3>
+  <table>
+    <tr><th></th><th>Civil</th><th>Civics</th></tr>
+    <tr><td><b>Part of speech</b></td><td><b>Adjective</b></td><td><b>Noun</b></td></tr>
+    <tr><td><b>Definition</b></td><td>Relates to citizens and their interactions within a society or state; can mean <b>non-military, non-religious or non-criminal</b>.</td><td>The <b>study</b> of the rights and duties of citizenship and the functioning of government and society.</td></tr>
+    <tr><td><b>Used in / context</b></td><td>civil rights, civil law, civil society, civil engineering. <b>Civil rights</b> = citizens' rights to political and social freedom and equality. <b>Civil law</b> = legal system dealing with <b>private disputes</b> between individuals or organisations.</td><td>Educational context — school curricula about government structures, the political system, the role of citizens, and how laws are made and enforced (constitution, voting, responsibilities of citizenship).</td></tr>
+    <tr><td><b>One-line summary</b></td><td colspan="2"><b>"Civil" is about aspects of citizens and societal structures; "civics" is the academic study of rights, responsibilities and functions within a political and social system.</b></td></tr>
+  </table>
+
+  <h3>3. Forms of civic engagement</h3>
+  <div class="card2">
+    <ul>
+      <li><b>Voting</b> — one of the most fundamental forms of civic engagement.</li>
+      <li><b>Community service</b> — volunteering time and resources to address local issues.</li>
+      <li><b>Advocacy</b> — promoting or supporting a cause or policy within the community.</li>
+      <li><b>Additional forms:</b> petitioning, attending public meetings, participating in protests.</li>
+    </ul>
+  </div>
+  <div class="card"><b>Community engagement vs civic engagement:</b> community engagement emphasises <b>collaborative efforts between institutions and communities</b> to address local issues and improve the well-being of that <b>specific</b> community — it is <b>often a specific form of civic engagement</b>.</div>
+
+  <h3>4. Volunteering</h3>
+  <div class="card2">
+    Offering services <b>for free</b> to benefit a community or cause.
+    <ul>
+      <li><b>Types:</b> disaster relief, educational services, health initiatives.</li>
+      <li><b>Impact:</b> strengthens community bonds and promotes social responsibility.</li>
+      <li><b>Case example:</b> blood donation &amp; rehabilitation drives as a form of civic duty.</li>
+    </ul>
+  </div>
+
+  <h3>5. Advocacy</h3>
+  <div class="card2">
+    Efforts to <b>influence public policy and resource-allocation decisions</b>.
+    <ul>
+      <li><b>Forms:</b> lobbying, public campaigns, legal actions.</li>
+      <li><b>Importance:</b> ensures citizens' voices are heard in decision-making processes.</li>
+      <li><b>Tools:</b> petitions, public speaking, media.</li>
+    </ul>
+  </div>
+
+  <h3>6. Social activism</h3>
+  <div class="card2">
+    The practice of <b>vigorous actions or involvement</b> as a means of achieving <b>political or social goals</b>.
+    <ul>
+      <li><b>Examples:</b> movements for environmental protection, human rights, gender equality.</li>
+      <li><b>Strategies:</b> peaceful protests, sit-ins, online campaigns.</li>
+      <li><b>Impact:</b> has led to significant changes in policies and societal attitudes.</li>
+    </ul>
+  </div>
+
+  <h3>7. Case studies of public participation in Pakistan (3 — memorise the years)</h3>
+  <div class="card2">
+    <ul>
+      <li><b>The Lawyers' Movement (2007-2009)</b> — a successful campaign for the restoration of <b>judiciary independence</b>.</li>
+      <li>Citizens' participation in <b>disaster relief after the 2005 earthquake</b>.</li>
+      <li><b>Youth-led initiatives for educational reform</b>.</li>
+    </ul>
+    <b>Impact:</b> these movements demonstrated the power of <b>collective action</b> in shaping public policy.
+  </div>
+
+  <h3>8. The role of media in active citizenship</h3>
+  <div class="card2">
+    Media informs citizens and facilitates public discourse.
+    <ul>
+      <li><b>Types:</b> traditional media (newspapers, television) and social media (Twitter, Facebook).</li>
+      <li><b>Functions:</b> <b>watchdog</b>, <b>agenda-setter</b>, and <b>platform for public debate</b>.</li>
+      <li><b>Impact:</b> empowers citizens with the information needed for informed decisions.</li>
+    </ul>
+  </div>
+  <table>
+    <tr><th>Traditional media</th><th>Social media</th></tr>
+    <tr>
+      <td>
+        <b>Informing the public</b> — long the primary source of news.<br>
+        <b>Shaping public opinion</b> — editorials, news coverage, investigative journalism.<br>
+        <b>Accountability</b> — holds government and officials accountable by exposing corruption and misconduct.<br>
+        <b>Challenge:</b> media ownership and bias influence the framing of news.
+      </td>
+      <td>
+        <b>Engagement</b> — real-time interaction among citizens.<br>
+        <b>Mobilisation</b> — organising protests, campaigns, awareness movements.<br>
+        <b>Information sharing</b> — democratised access to information.<br>
+        <b>Challenges:</b> misinformation and echo chambers distort public perception and hinder dialogue.
+      </td>
+    </tr>
+  </table>
+
+  <h3>9. Media literacy</h3>
+  <div class="card2">
+    The ability to <b>access, analyse, evaluate and create</b> media in various forms.
+    <ul>
+      <li><b>Importance:</b> critical for discerning credible information from fake news and biased reporting.</li>
+      <li><b>Skills:</b> understanding media production, recognising bias, evaluating sources.</li>
+      <li><b>Application:</b> helps citizens make informed decisions and participate effectively in civic life.</li>
+    </ul>
+  </div>
+
+  <h3>10. Media bias &amp; fake news</h3>
+  <div class="card2">
+    <b>Types of bias:</b> bias by <b>omission</b>, <b>selection of sources</b>, and <b>story framing</b>.<br>
+    <b>Detection:</b> critical thinking + comparing how different outlets report the same event.<br>
+    <b>Impact:</b> shapes public opinion by presenting information in a skewed way.<br>
+    <b>Mitigation:</b> diversifying news sources and fact-checking.
+  </div>
+  <div class="card2">
+    <b>Fake news</b> = false or misleading information presented as news.
+    <ul>
+      <li><b>Consequences:</b> spreads misinformation, influences elections, incites violence.</li>
+      <li><b>Verification tools:</b> fact-checking websites, cross-referencing multiple sources, examining the credibility of the source.</li>
+      <li><b>Role of citizens:</b> be vigilant and verify information <b>before sharing it</b>.</li>
+    </ul>
+  </div>
+
+  <h3>11. Case study: media and democratic movements in Pakistan</h3>
+  <div class="card2">
+    <ul>
+      <li>During the <b>Lawyers' Movement</b>, media played a critical role in <b>mobilising public support</b>.</li>
+      <li>In recent elections, <b>social media</b> engaged voters and helped <b>monitor electoral processes</b>.</li>
+      <li><b>Challenges:</b> media faced restrictions and <b>censorship</b> during times of political instability.</li>
+      <li><b>Outcome:</b> media helped sustain democratic momentum and brought <b>international attention</b> to Pakistan's struggle for democracy.</li>
+    </ul>
+  </div>
+
+  <h3>12. Citizen journalism &amp; digital campaigns</h3>
+  <div class="card2">
+    <b>Citizen journalism</b> = the collection, dissemination and analysis of news and information <b>by the general public</b>, especially via the internet.
+    <ul>
+      <li><b>Impact:</b> empowers ordinary citizens to report issues overlooked by traditional media.</li>
+      <li><b>Tools:</b> smartphones, social media platforms, blogs. <b>Examples:</b> coverage of protests, environmental issues, human-rights abuses.</li>
+    </ul>
+  </div>
+  <div class="card2">
+    <b>Digital campaigns</b> = online tools and social media used to advocate causes and mobilise support.
+    <ul>
+      <li><b>Reach:</b> can quickly gain global traction. <b>Techniques:</b> hashtags, viral videos, online petitions.</li>
+      <li><b>Examples:</b> #MeToo, climate-change activism, political awareness campaigns.</li>
+    </ul>
+  </div>
+
+  <h3>13. Challenges to media + solutions</h3>
+  <table>
+    <tr><th>Challenge</th><th>What it means</th></tr>
+    <tr><td><b>Censorship</b></td><td>Government restrictions limit media freedom and stifle public discourse.</td></tr>
+    <tr><td><b>Commercialisation</b></td><td>Outlets prioritise profit over public interest → <b>sensationalism</b>.</td></tr>
+    <tr><td><b>Misinformation</b></td><td>Fake news undermines trust in media and discourages civic participation.</td></tr>
+    <tr><td><b>Solutions</b></td><td>Advocating <b>media independence</b> and promoting <b>media literacy</b> among citizens.</td></tr>
+  </table>
+
+  <h3>14. Independent media in Pakistan</h3>
+  <div class="card2">
+    <ul>
+      <li><b>Importance:</b> serves as a crucial <b>check on government power</b> and promotes <b>transparency</b>.</li>
+      <li><b>Challenges:</b> independent journalists face <b>threats, intimidation and violence</b>.</li>
+      <li><b>Success stories:</b> investigative journalism exposing corruption and human-rights abuses.</li>
+      <li><b>Support needed:</b> strengthening protections for journalists and promoting press freedom.</li>
+    </ul>
+  </div>
+
+  <h3>15. The future + conclusion</h3>
+  <div class="card2">
+    <b>Trends:</b> growing role of digital media and emerging technologies.<br>
+    <b>New platforms:</b> podcasts, YouTube, livestreaming for political discourse and activism.<br>
+    <b>Citizen empowerment:</b> greater access to information and tools → more engagement.<br>
+    <b>Potential challenges:</b> the <b>digital divide</b>, misinformation, privacy concerns.<br>
+    <b>Opportunities:</b> media-technology innovation could enhance transparency and public participation in governance.
+  </div>
+  <div class="card good">
+    <b>The closing line of the chapter</b> (very quotable): <i>"Active citizenship starts with informed citizens. Engage, participate, and make your voice heard for a stronger democracy."</i>
+  </div>
+</section>
+
+<!-- ============ FLASHCARDS ============ -->
+<section id="cards">
+  <h2>Flashcards — click the card to flip</h2>
+  <div class="fc" id="fc">
+    <div class="q" id="fcq"></div>
+    <div class="a" id="fca"></div>
+    <div class="hint">click / tap to reveal</div>
+  </div>
+  <div class="row">
+    <button id="prev">← Previous</button>
+    <button id="next">Next →</button>
+    <button id="shuffle">🔀 Shuffle</button>
+    <span class="count" id="fccount"></span>
+  </div>
+</section>
+
+<!-- ============ QUIZ ============ -->
+<section id="quiz">
+  <h2>Practice quiz — 44 questions, instant feedback</h2>
+  <div class="bar"><i id="qbar"></i></div>
+  <div class="count" id="qmeta" style="margin:0 0 10px"></div>
+  <div id="qbox"></div>
+  <div class="row"><button class="btn" id="restart">Restart quiz</button></div>
+</section>
+
+<!-- ============ SHORT ANSWERS ============ -->
+<section id="short">
+  <h2>Written answers — say it out loud first, then open</h2>
+  <div class="card"><b>How to practise:</b> answer the question <b>out loud or on paper in 3-5 lines</b>, then click to reveal the model answer and check which keywords you missed.</div>
+  <div id="sabox"></div>
+</section>
+
+<!-- ============ CHEAT SHEET ============ -->
+<section id="cheat">
+  <h2>Cheat sheet — last 20 minutes before the quiz</h2>
+  <div class="card">
+    <h3>Numbers, names, years</h3>
+    <ul>
+      <li>Constitution of Pakistan — <b>1973</b>; voting age <b>18+</b>; example election — <b>General Elections 2024</b> (National Assembly + Provincial Assemblies).</li>
+      <li>Lawyers' Movement — <b>2007-2009</b>, restoration of judiciary independence.</li>
+      <li>Disaster relief — after the <b>2005</b> earthquake. Vaccination example — children <b>under 5</b>.</li>
+      <li>Agencies named: <b>NADRA</b>, <b>ECP</b>. Digital campaign examples: <b>#MeToo</b>, climate activism.</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3>The three definitions people mix up</h3>
+    <ul>
+      <li><b>Active citizenship</b> = involvement of individuals in public life and affairs (local, national, international); goes <b>beyond legal status</b>.</li>
+      <li><b>Civic engagement</b> = citizens participating in political, social and economic life; <b>broader</b> than active citizenship; individual + collective action on public concerns.</li>
+      <li><b>Community engagement</b> = collaborative work with community groups on issues affecting <b>their own</b> well-being; <b>a specific form of civic engagement</b>.</li>
+    </ul>
+    <p><b>Word ladder to remember:</b> Community engagement ⊂ Civic engagement; Active citizenship = the proactive attitude behind both.</p>
+  </div>
+  <div class="card">
+    <h3>5 + 5 lists (Ch 1)</h3>
+    <ul>
+      <li><b>Importance:</b> strengthens democracy · builds stronger communities · empowers citizens · addresses social issues · encourages civic responsibility.</li>
+      <li><b>Key concepts:</b> citizenship · democracy · rule of law · civic virtue · public participation.</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3>Media in one breath</h3>
+    <ul>
+      <li><b>Functions:</b> watchdog · agenda-setter · platform for public debate.</li>
+      <li><b>Trad media challenge:</b> ownership &amp; bias. <b>Social media challenges:</b> misinformation &amp; echo chambers.</li>
+      <li><b>Bias types:</b> omission · selection of sources · framing.</li>
+      <li><b>Fake-news fixes:</b> fact-checking sites · cross-referencing sources · check source credibility · verify before sharing.</li>
+      <li><b>Big three challenges:</b> censorship · commercialisation (→ sensationalism) · misinformation. <b>Solutions:</b> media independence + media literacy.</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3>Vocabulary traps</h3>
+    <ul>
+      <li><b>civil</b> = adjective · <b>civics</b> = noun. Civil law = <b>private disputes</b>, not criminal.</li>
+      <li><b>Right</b> (vote, protection) vs <b>duty</b> (obey laws, pay taxes).</li>
+      <li><b>Birthright</b> = by place of birth · <b>naturalised</b> = after conditions (residency, language).</li>
+      <li><b>Advocacy</b> influences <b>policy/resource allocation</b>; <b>activism</b> uses vigorous action (protests, sit-ins, online campaigns).</li>
+      <li><b>Citizen journalism</b> = news by the <b>general public</b>, usually online.</li>
+    </ul>
+  </div>
+  <div class="row"><button class="btn" onclick="window.print()">Print / save as PDF</button></div>
+</section>
+</div>
+
+<script>
+/* ---------- nav ---------- */
+var tabs = document.querySelectorAll("nav button");
+tabs.forEach(function(b){
+  b.addEventListener("click", function(){
+    tabs.forEach(function(x){ x.classList.remove("on"); });
+    b.classList.add("on");
+    document.querySelectorAll("section").forEach(function(s){ s.classList.remove("on"); });
+    document.getElementById(b.dataset.t).classList.add("on");
+    window.scrollTo(0,0);
+  });
+});
+
+/* ---------- flashcards ---------- */
+var CARDS = [
+  ["Civics (definition)", "The study of the rights, duties and responsibilities of citizens in relation to the state and society; it examines how governments operate, how laws are created and enforced, and how individuals and communities contribute to governance. It promotes democracy, justice, equality and active citizenship."],
+  ["Citizenship (definition)", "Being a legally recognised member of a country — both a legal status and a social contract, giving rights (voting, protection by the state) and duties (obeying laws, paying taxes)."],
+  ["Two types of citizenship", "Birthright (given by place of birth) and Naturalised (granted after fulfilling conditions such as residency and language proficiency)."],
+  ["Rights vs duties of a citizen", "Rights: voting, protection by the state. Duties: obeying laws, paying taxes."],
+  ["Importance of civic & community engagement (5)", "1 Strengthens democracy 2 Builds stronger communities 3 Empowers citizens 4 Addresses social issues 5 Encourages civic responsibility."],
+  ["Key concepts in civics (5)", "Citizenship, Democracy, Rule of Law, Civic Virtue, Public Participation."],
+  ["Democracy (definition)", "A system of government where power is vested in the people, who rule either directly or through freely elected representatives."],
+  ["Rule of Law (definition)", "The principle that all members of society — including those in government — are equally subject to the law."],
+  ["Civic Virtue (definition)", "The cultivation of habits important for the success of the community, such as honesty, responsibility and respect for others."],
+  ["Public Participation (definition)", "The involvement of citizens in the decision-making processes of government and other public institutions."],
+  ["Active Citizenship (definition)", "The involvement of individuals in public life and affairs at local, national and international levels — it goes beyond legal status and means proactively contributing to society rather than just following the law."],
+  ["Examples of active citizenship", "Volunteering at a local charity, attending town-hall meetings, starting a campaign for a local cause."],
+  ["Civic Engagement (definition)", "The ways in which citizens participate in the political, social and economic life of their communities — individual and collective actions that identify and address issues of public concern. Broader than active citizenship."],
+  ["Why is civic engagement important?", "It is essential for the health of a democracy; it promotes inclusivity and addresses social injustices. It can be formal (voting) or informal (volunteering)."],
+  ["Community Engagement (definition)", "The process of working collaboratively with community groups to address issues that impact the well-being of those groups — building relationships and partnerships to create sustainable change."],
+  ["Community engagement example", "Community health workers, NGOs, teachers and local volunteers engaging with families — spreading awareness, building trust and administering vaccines to children under 5."],
+  ["Civic engagement in Pakistan (example)", "Voting in general elections. Under the Constitution of Pakistan 1973, every adult citizen aged 18+ has the right to vote; in the General Elections 2024 millions voted for the National Assembly and Provincial Assemblies."],
+  ["Why study civics as a CS student? (4 reasons)", "Develop responsible citizenship (privacy-respecting apps) · promote ethical and inclusive technology (Urdu apps for farmers) · strengthen problem-solving through social awareness (align e-governance apps with NADRA/ECP) · enhance leadership and teamwork."],
+  ["Civil (definition)", "An adjective relating to citizens and their interactions within a society or state; can refer to matters that are non-military, non-religious or non-criminal. Used in civil rights, civil law, civil society, civil engineering."],
+  ["Civics (as a noun)", "The study of the rights and duties of citizenship and the functioning of government and society — taught in educational contexts (constitution, voting, responsibilities of citizenship)."],
+  ["Civil rights vs Civil law", "Civil rights = citizens' rights to political and social freedom and equality. Civil law = the legal system dealing with private disputes between individuals or organisations."],
+  ["Forms of civic engagement (3 + extras)", "Voting (most fundamental), community service (volunteering time/resources for local issues), advocacy (supporting a cause or policy). Extra forms: petitioning, attending public meetings, participating in protests."],
+  ["Volunteering", "Offering services for free to benefit a community or cause. Types: disaster relief, educational services, health initiatives. Impact: strengthens community bonds and promotes social responsibility. Case example: blood donation and rehabilitation drives."],
+  ["Advocacy", "Efforts to influence public policy and resource-allocation decisions. Forms: lobbying, public campaigns, legal actions. Tools: petitions, public speaking, media. Importance: ensures citizens' voices are heard in decision-making."],
+  ["Social activism", "The practice of vigorous actions or involvement as a means of achieving political or social goals. Examples: environmental protection, human rights, gender equality. Strategies: peaceful protests, sit-ins, online campaigns."],
+  ["Case studies of public participation in Pakistan", "1 The Lawyers' Movement (2007-2009) for restoration of judiciary independence 2 Citizens' participation in disaster relief after the 2005 earthquake 3 Youth-led initiatives for educational reform. Impact: the power of collective action in shaping public policy."],
+  ["The three functions of media", "Watchdog, agenda-setter, and platform for public debate — media informs citizens and facilitates public discourse (traditional: newspapers, TV; social: Twitter, Facebook)."],
+  ["Traditional media's influence", "Informing the public (primary source of news), shaping public opinion (editorials, news coverage, investigative journalism), accountability (exposing corruption and misconduct). Challenge: media ownership and bias affect framing."],
+  ["Social media's influence", "Real-time engagement, mobilisation (protests, campaigns, awareness movements), democratised information sharing. Challenges: misinformation and echo chambers."],
+  ["Media literacy", "The ability to access, analyse, evaluate and create media in various forms. Skills: understanding media production, recognising bias, evaluating sources. It separates credible information from fake news and biased reporting."],
+  ["Types of media bias", "Bias by omission, selection of sources, and story framing. Detected by critical thinking and comparing how different outlets report the same event. Mitigated by diversifying sources and fact-checking."],
+  ["Fake news — consequences & verification", "False or misleading information presented as news. It spreads misinformation, influences elections and incites violence. Verify with fact-checking websites, cross-referencing multiple sources and checking source credibility — and verify before sharing."],
+  ["Media & democratic movements in Pakistan", "During the Lawyers' Movement media mobilised public support; in recent elections social media engaged voters and monitored electoral processes; media faced restrictions and censorship in unstable times; outcome: sustained democratic momentum and international attention."],
+  ["Citizen journalism", "The collection, dissemination and analysis of news and information by the general public, especially via the internet. Tools: smartphones, social media platforms, blogs. Example: coverage of protests, environmental issues, human-rights abuses."],
+  ["Digital campaigns", "Online tools and social media used to advocate for causes and mobilise support — hashtags, viral videos, online petitions. Examples: #MeToo, climate-change activism, political awareness campaigns."],
+  ["Challenges to media (3)", "Censorship (government restrictions limit media freedom), commercialisation (profit over public interest → sensationalism), misinformation (fake news undermines trust and discourages participation). Solutions: media independence + media literacy."],
+  ["Independent media in Pakistan", "Serves as a check on government power and promotes transparency; journalists face threats, intimidation and violence; investigative journalism has exposed corruption and human-rights abuses; needs stronger protections and press freedom."],
+  ["The future of media & civic engagement", "Trends: digital media and emerging technology. New platforms: podcasts, YouTube, livestreaming. Opportunities: transparency and participation. Challenges: the digital divide, misinformation, privacy concerns."],
+  ["The chapter's closing thought", "\"Active citizenship starts with informed citizens. Engage, participate, and make your voice heard for a stronger democracy.\""]
+];
+
+var fi = 0, order = CARDS.map(function(_,i){ return i; });
+var fcEl = document.getElementById("fc");
+function drawCard(){
+  var c = CARDS[order[fi]];
+  document.getElementById("fcq").textContent = c[0];
+  document.getElementById("fca").textContent = c[1];
+  fcEl.classList.remove("flip");
+  document.getElementById("fccount").textContent = "card " + (fi+1) + " / " + CARDS.length;
+}
+fcEl.addEventListener("click", function(){ fcEl.classList.toggle("flip"); });
+document.getElementById("next").addEventListener("click", function(){ fi = (fi+1) % CARDS.length; drawCard(); });
+document.getElementById("prev").addEventListener("click", function(){ fi = (fi-1+CARDS.length) % CARDS.length; drawCard(); });
+document.getElementById("shuffle").addEventListener("click", function(){
+  for (var i = order.length-1; i > 0; i--){ var j = Math.floor(Math.random()*(i+1)); var t = order[i]; order[i]=order[j]; order[j]=t; }
+  fi = 0; drawCard();
+});
+drawCard();
+
+/* ---------- quiz ---------- */
+var Q = [
+ ["Civics is best defined as the study of:",["the rights, duties and responsibilities of citizens in relation to the state and society","how governments collect and spend tax revenue","military and religious law","the engineering of public infrastructure"],0,"That is the lecture's definition. Civics also examines how governments operate, how laws are made and enforced, and how people contribute to governance."],
+ ["Which of the following is given as a DUTY of citizenship rather than a right?",["Paying taxes","Voting","Protection by the state","Participation in public discourse"],0,"Rights: voting and protection by the state. Duties: obeying laws and paying taxes."],
+ ["Citizenship is described as both a legal status and a:",["social contract","business contract","religious duty","cultural tradition"],0,"The slide says citizenship is a legal status and a social contract — it confers rights and imposes duties."],
+ ["Birthright citizenship is granted on the basis of:",["place of birth","fulfilling residency and language requirements","a government decree","length of marriage to a citizen"],0,"Birthright = by place of birth. Naturalised = after fulfilling conditions such as residency and language proficiency."],
+ ["Naturalised citizenship is granted after:",["fulfilling certain conditions such as residency and language proficiency","being born in the country","registering as a voter","completing military service"],0,"Conditions include residency and language proficiency."],
+ ["Which one is NOT listed among the key concepts in civics?",["Federalism","Democracy","Rule of Law","Civic Virtue"],0,"The five key concepts are Citizenship, Democracy, Rule of Law, Civic Virtue and Public Participation."],
+ ["The Rule of Law means that:",["all members of society, including those in government, are equally subject to the law","the government is above the law in emergencies","laws are made by the judiciary alone","only citizens (not officials) must obey the law"],0,"Equality before the law — including those in government."],
+ ["Civic Virtue is the cultivation of habits important for the success of the community, such as:",["honesty, responsibility and respect for others","wealth, status and influence","loyalty to a single political party","obedience to authority without question"],0,"The slide lists honesty, responsibility and respect for others."],
+ ["Democracy is defined in the lecture as a system where power is vested in:",["the people, who rule directly or through freely elected representatives","an elected monarch","the bureaucracy","the judiciary"],0,"Power vested in the people — directly or through freely elected representatives."],
+ ["Public Participation means the involvement of citizens in:",["the decision-making processes of government and other public institutions","military operations","religious institutions only","private business decisions"],0,"Involvement in decision-making processes of government and public institutions."],
+ ["Under the Constitution of Pakistan (1973), the right to vote belongs to every adult citizen aged:",["18 years and above","16 years and above","21 years and above","25 years and above"],0,"18 years and above."],
+ ["Which election is used in the lecture as an example of civic engagement in Pakistan?",["General Elections 2024","General Elections 2018","General Elections 2013","The 2002 referendum"],0,"General Elections 2024 — millions voted to elect the National Assembly and Provincial Assemblies."],
+ ["Community engagement is the process of:",["working collaboratively with community groups to address issues that impact their well-being","running election campaigns for a political party","collecting taxes at the local level","delivering court judgments in villages"],0,"It involves building relationships and partnerships to create sustainable change."],
+ ["The example of community health workers, NGOs, teachers and volunteers administering vaccines to children under 5 illustrates:",["community engagement","media bias","rule of law","naturalised citizenship"],0,"It is the lecture's example of community engagement."],
+ ["Which of these is given as a reason a Computer Science student should study civics?",["Understanding constitutional privacy rights helps design apps that respect users' data","Learning to build faster processors","Studying network security protocols","Learning accounting standards"],0,"Develop responsible citizenship — privacy-respecting app design."],
+ ["Designing an e-governance app whose features align with NADRA, ECP or local government systems illustrates:",["strengthening problem-solving through social awareness","enhancing leadership and teamwork","promoting ethical and inclusive technology","developing responsible citizenship"],0,"Understanding civic structures = problem-solving through social awareness."],
+ ["The term 'civil' is a(n) ___ and 'civics' is a(n) ___.",["adjective / noun","noun / adjective","verb / noun","adverb / adjective"],0,"Civil = adjective (relating to citizens); civics = noun (the study of rights and duties of citizenship)."],
+ ["Civil law deals with:",["private disputes between individuals or organisations","criminal offences punishable by the state","military tribunals","religious matters"],0,"Civil law covers private disputes; civil matters are non-military, non-religious and non-criminal."],
+ ["Which is described as one of the most fundamental forms of civic engagement?",["Voting","Lobbying","Blogging","Litigation"],0,"Voting — the lecture calls it one of the most fundamental forms."],
+ ["Which of the following is NOT listed as an additional form of civic engagement?",["Military service","Petitioning","Attending public meetings","Participating in protests"],0,"Additional forms listed: petitioning, attending public meetings, participating in protests."],
+ ["Community engagement is best described as:",["often a specific form of civic engagement","a replacement for democracy","the same thing as social activism","a type of media campaign"],0,"Community engagement emphasises collaboration between institutions and communities on local issues, and is often a specific form of civic engagement."],
+ ["Blood donation and rehabilitation drives were given as a case example of:",["volunteering","advocacy","citizen journalism","digital campaigning"],0,"Volunteering: offering services for free to benefit a community or cause."],
+ ["Which is NOT listed as a type of volunteering?",["Corporate internships","Disaster relief","Educational services","Health initiatives"],0,"Types: disaster relief, educational services, health initiatives."],
+ ["Advocacy is best defined as efforts to:",["influence public policy and resource-allocation decisions","organise armed resistance","operate independent media houses","replace elected governments"],0,"Advocacy influences public policy and resource allocation; forms include lobbying, public campaigns and legal actions."],
+ ["Which tools does the lecture list for advocacy?",["Petitions, public speaking and media","Strikes only","Court injunctions only","Foreign diplomacy"],0,"Tools: petitions, public speaking, media."],
+ ["Social activism is the practice of vigorous actions or involvement to achieve:",["political or social goals","commercial profit","religious conversion","military objectives"],0,"Political or social goals — through peaceful protests, sit-ins and online campaigns."],
+ ["Which of these is NOT among the strategies of social activism listed in the lecture?",["Armed rebellion","Peaceful protests","Sit-ins","Online campaigns"],0,"Strategies listed: peaceful protests, sit-ins, online campaigns."],
+ ["The Lawyers' Movement (2007-2009) in Pakistan was a successful campaign for:",["the restoration of judiciary independence","a new constitution","electoral reform","provincial autonomy"],0,"It campaigned successfully for the restoration of judiciary independence."],
+ ["Citizens' participation in disaster relief in Pakistan is linked in the lecture to:",["the 2005 earthquake","the 2010 floods","the 2008 election","the 1999 coup"],0,"The 2005 earthquake relief effort."],
+ ["Which is listed as a non-electoral movement of public participation in Pakistan?",["Youth-led initiatives for educational reform","The Lawyers' Movement","2005 earthquake relief","All three are listed"],0,"The three case studies are the Lawyers' Movement, 2005 earthquake relief, and youth-led education reform."],
+ ["According to the lecture, media's functions include all EXCEPT:",["collecting taxes on behalf of the government","acting as a watchdog","acting as an agenda-setter","providing a platform for public debate"],0,"Functions: watchdog, agenda-setter, platform for public debate."],
+ ["Media holding government and officials accountable by exposing corruption is its ___ role.",["watchdog","agenda-setter","entertainment","commercial"],0,"The watchdog function."],
+ ["Which challenge is specifically linked to SOCIAL media in the lecture?",["Misinformation and echo chambers","Media ownership bias","Sensationalism driven by profit","Print circulation decline"],0,"Traditional media's challenge = ownership and bias in framing; social media's = misinformation and echo chambers."],
+ ["Media literacy is the ability to:",["access, analyse, evaluate and create media in various forms","operate broadcasting equipment","write news reports professionally","regulate media houses"],0,"Media literacy = access, analyse, evaluate, create. Skills: understanding media production, recognising bias, evaluating sources."],
+ ["Bias by omission, selection of sources, and story framing are:",["types of media bias","functions of social media","forms of advocacy","tools of citizen journalism"],0,"These are the three types of media bias named in the lecture."],
+ ["Fake news is best defined as:",["false or misleading information presented as news","news published by independent outlets","opinion pieces in newspapers","unverified citizen journalism"],0,"Fake news = false or misleading information presented as news. Consequences: misinformation, influencing elections, inciting violence."],
+ ["Which of these is NOT a verification tool mentioned in the lecture?",["Relying on the number of likes and shares","Fact-checking websites","Cross-referencing multiple sources","Examining the credibility of the source"],0,"Likes and shares are not verification. The lecture stresses verifying before sharing."],
+ ["Citizen journalism refers to news and information collected, disseminated and analysed by:",["the general public, especially via the internet","professional foreign correspondents","government press officers","media regulatory authorities"],0,"By the general public, usually through smartphones, social media and blogs."],
+ ["Which of these is an example of a digital campaign named in the lecture?",["#MeToo","The Lawyers' Movement","The 2005 earthquake relief drive","Vaccination campaigns"],0,"Digital campaign examples: #MeToo, climate-change activism and political awareness campaigns."],
+ ["Commercialisation of media leads to:",["sensationalism, as outlets prioritise profit over public interest","greater press freedom","more investigative journalism","reduced censorship"],0,"Commercialisation → profit over public interest → sensationalism."],
+ ["Which pair of solutions does the lecture give for the challenges to media?",["Advocating media independence and promoting media literacy","Banning social media and censoring newspapers","Government subsidies and state ownership","Self-regulation by political parties"],0,"Media independence + media literacy among citizens."],
+ ["What does the lecture say about independent media in Pakistan?",["It is a crucial check on government power but journalists face threats and violence","It has no role in democracy","It is fully protected by law","It faces no challenges"],0,"Independent media checks government power and promotes transparency, but journalists face threats, intimidation and violence."],
+ ["The lecture's closing thought begins with:",["\"Active citizenship starts with informed citizens.\"","\"Democracy begins in the classroom.\"","\"Media is the fourth pillar of the state.\"","\"Voting is the only civic duty.\""],0,"\"Active citizenship starts with informed citizens. Engage, participate, and make your voice heard for a stronger democracy.\""],
+ ["Which is listed as a potential challenge for the FUTURE of media and civic engagement?",["The digital divide, misinformation and privacy concerns","Too few social media platforms","Excessive press freedom","Declining smartphone ownership worldwide"],0,"Future challenges: digital divide, misinformation, privacy concerns; opportunities: transparency and participation."]
+];
+
+var qi = 0, score = 0, answered = false, wrongList = [];
+var qbox = document.getElementById("qbox");
+
+function drawQ(){
+  answered = false;
+  var item = Q[qi];
+  document.getElementById("qbar").style.width = (qi / Q.length * 100) + "%";
+  document.getElementById("qmeta").textContent = "Question " + (qi+1) + " of " + Q.length + "   ·   score " + score;
+  var html = "<div class='card'><p><b>" + (qi+1) + ". " + item[0] + "</b></p>";
+  item[1].forEach(function(o, i){
+    html += "<button class='opt' data-i='" + i + "'>" + String.fromCharCode(65+i) + ") " + o + "</button>";
+  });
+  html += "<div class='fb' id='fb'></div></div>";
+  qbox.innerHTML = html;
+  qbox.querySelectorAll(".opt").forEach(function(btn){
+    btn.addEventListener("click", function(){ answer(parseInt(btn.dataset.i), item); });
+  });
+}
+
+function answer(i, item){
+  if (answered) return;
+  answered = true;
+  var btns = qbox.querySelectorAll(".opt");
+  btns[item[2]].classList.add("right");
+  var fb = document.getElementById("fb");
+  if (i === item[2]){ score++; fb.className = "fb on ok"; fb.innerHTML = "<b>Correct.</b> " + item[3]; }
+  else {
+    btns[i].classList.add("wrong");
+    wrongList.push(item[0]);
+    fb.className = "fb on no";
+    fb.innerHTML = "<b>Not quite.</b> Correct answer: <b>" + String.fromCharCode(65+item[2]) + ") " + item[1][item[2]] + "</b> — " + item[3];
+  }
+  document.getElementById("qmeta").textContent = "Question " + (qi+1) + " of " + Q.length + "   ·   score " + score;
+  var more = document.createElement("button");
+  more.className = "btn";
+  more.style.marginTop = "10px";
+  more.textContent = (qi === Q.length-1) ? "See my result" : "Next question →";
+  more.addEventListener("click", function(){
+    if (qi === Q.length-1){ finish(); } else { qi++; drawQ(); }
+  });
+  fb.appendChild(document.createElement("div"));
+  fb.appendChild(more);
+}
+
+function finish(){
+  document.getElementById("qbar").style.width = "100%";
+  var pct = Math.round(score / Q.length * 100);
+  var verdict = pct >= 90 ? "Excellent — you are quiz-ready." :
+                pct >= 75 ? "Good. Fix the misses below and re-run." :
+                pct >= 50 ? "Passable start — go back to the Learn tab for the missed topics." :
+                            "Needs work tonight. Read the Learn tab end to end, then re-run this quiz.";
+  var html = "<div class='card'><p class='score'>" + score + " / " + Q.length + "  (" + pct + "%)</p><p>" + verdict + "</p>";
+  if (wrongList.length){
+    html += "<p><b>Revise these:</b></p><ul>";
+    wrongList.forEach(function(w){ html += "<li>" + w + "</li>"; });
+    html += "</ul>";
+  } else { html += "<p>No mistakes. Now do the written answers tab.</p>"; }
+  html += "<button class='btn' id='again'>Try again (fresh order later)</button></div>";
+  qbox.innerHTML = html;
+  document.getElementById("again").addEventListener("click", restart);
+}
+
+function restart(){ qi = 0; score = 0; wrongList = []; drawQ(); }
+document.getElementById("restart").addEventListener("click", restart);
+drawQ();
+
+/* ---------- written answers ---------- */
+var SA = [
+ ["Define civics and explain what it examines.","Civics is the study of the rights, duties and responsibilities of citizens in relation to the state and society. It examines how governments operate, how laws are created and enforced, and how individuals and communities contribute to governance and decision-making. It also promotes the values of democracy, justice, equality and active citizenship."],
+ ["What is citizenship? Explain its two types.","Citizenship is being a legally recognised member of a country — both a legal status and a social contract. It confers rights (voting, protection by the state) and imposes duties (obeying laws, paying taxes). Types: birthright citizenship, given by place of birth, and naturalised citizenship, granted after fulfilling conditions such as residency and language proficiency."],
+ ["List the five points on the importance of civic and community engagement.","1) It strengthens democracy — citizens' voices are heard, making government more representative and accountable. 2) It builds stronger communities — participation creates belonging, solidarity, cohesion and resilience. 3) It empowers citizens to exercise their rights, advocate for issues and create change. 4) It addresses social issues through collective action, promoting social justice and equity. 5) It encourages civic responsibility towards the common good."],
+ ["Name and define the five key concepts in civics.","Citizenship — rights and responsibilities of citizens, including political participation and community service. Democracy — power vested in the people, who rule directly or through freely elected representatives. Rule of Law — all members of society, including government, are equally subject to the law. Civic Virtue — habits important for the community's success, such as honesty, responsibility and respect. Public Participation — citizens' involvement in the decision-making of government and public institutions."],
+ ["Distinguish between active citizenship and civic engagement.","Active citizenship is the involvement of individuals in public life and affairs at local, national and international levels. It goes beyond legal status: it is about proactively contributing to society — through governance, volunteering, activism and social justice — rather than merely following the law. Civic engagement is the broader term for the ways citizens participate in the political, social and economic life of their communities through individual and collective actions that identify and address issues of public concern. Active citizenship is essentially the attitude or practice behind civic engagement, while civic engagement is the full range of action."],
+ ["What is community engagement? Give an example.","Community engagement is the process of working collaboratively with community groups to address issues that impact the well-being of those groups, by building relationships and partnerships that create sustainable change. Example: community health workers, NGOs, teachers and local volunteers engage with families to spread awareness, build trust and administer vaccines to children under 5 years."],
+ ["Distinguish between 'civil' and 'civics'.","'Civil' is an adjective relating to citizens and their interactions within a society or state; it can refer to matters that are non-military, non-religious or non-criminal. It is used in civil rights (citizens' rights to political and social freedom and equality), civil law (the legal system dealing with private disputes between individuals or organisations), civil society and civil engineering. 'Civics' is a noun meaning the study of the rights and duties of citizenship and the functioning of government and society — taught in educational contexts such as the constitution, voting and the responsibilities of citizenship. In short, civil describes aspects of citizens and societal structures, while civics is the academic study of them."],
+ ["Explain the forms of civic engagement with examples.","Voting — the most fundamental form; it decides who represents citizens. Community service — volunteering time and resources to address local issues. Advocacy — promoting or supporting a cause or policy within the community. Additional forms include petitioning, attending public meetings and participating in protests. Examples: voting in the General Elections 2024, volunteering in vaccination drives, running a petition against a local problem, attending a town-hall meeting."],
+ ["Differentiate advocacy from social activism.","Advocacy is the effort to influence public policy and resource-allocation decisions; its forms are lobbying, public campaigns and legal actions, and its tools are petitions, public speaking and media. Social activism is the practice of vigorous actions or involvement to achieve political or social goals, using strategies such as peaceful protests, sit-ins and online campaigns — for example movements for environmental protection, human rights and gender equality. Advocacy works within policy channels; activism applies direct pressure through action."],
+ ["Describe three case studies of public participation in Pakistan and their impact.","1) The Lawyers' Movement (2007-2009): a successful campaign for the restoration of judiciary independence. 2) Citizens' participation in disaster relief after the 2005 earthquake. 3) Youth-led initiatives for educational reform. Impact: these movements demonstrated the power of collective action in shaping public policy."],
+ ["What role does media play in active citizenship?","Media informs citizens and facilitates public discourse. Traditional media includes newspapers and television, while social media includes platforms like Twitter and Facebook. Media functions as a watchdog (exposing corruption and holding government accountable), an agenda-setter (deciding which issues get public attention) and a platform for public debate. Its impact is to empower citizens with the information they need to make informed decisions."],
+ ["Compare the influence of traditional and social media on citizenship.","Traditional media informs the public as a primary news source, shapes public opinion through editorials, coverage and investigative journalism, and ensures accountability by exposing corruption and misconduct — its challenge is that media ownership and bias influence how news is framed. Social media enables real-time engagement, mobilises people for protests, campaigns and awareness movements, and democratises information sharing — its challenges are misinformation and echo chambers that distort perception and hinder dialogue."],
+ ["What is media literacy and why is it important for active citizenship?","Media literacy is the ability to access, analyse, evaluate and create media in various forms. It requires understanding media production, recognising bias and evaluating sources. It is important because it lets citizens discern credible information from fake news and biased reporting, so their decisions and civic participation are based on facts rather than manipulation."],
+ ["What is media bias? How can it be detected and mitigated?","Media bias is a skewed presentation of information that shapes public opinion. Its types are bias by omission, selection of sources and story framing. It is detected through critical thinking and by comparing how different outlets report the same event. It can be mitigated by diversifying news sources and fact-checking."],
+ ["What is fake news? Discuss its consequences and how citizens should verify information.","Fake news is false or misleading information presented as news. It can spread misinformation, influence elections and incite violence. Verification tools include fact-checking websites, cross-referencing multiple sources and examining the credibility of the source. Citizens must be vigilant and verify information before sharing it."],
+ ["Discuss the case study of media and democratic movements in Pakistan.","During the Lawyers' Movement, the media played a critical role in mobilising public support. In recent elections, social media has been used to engage voters and monitor electoral processes. Media faced restrictions and censorship during periods of political instability. The outcome was that media helped sustain democratic momentum and brought international attention to Pakistan's struggle for democracy."],
+ ["What is citizen journalism and what is its impact?","Citizen journalism is the collection, dissemination and analysis of news and information by the general public, especially via the internet. It empowers ordinary citizens to report on issues overlooked by traditional media, using smartphones, social media platforms and blogs — for example coverage of protests, environmental issues and human-rights abuses."],
+ ["Explain the role of digital campaigns in civic engagement.","Digital campaigns use online tools and social media to advocate for causes and mobilise support. They can quickly gain global traction. Their techniques include hashtags, viral videos and online petitions. Examples are #MeToo, climate-change activism and political awareness campaigns."],
+ ["What challenges does media face in promoting active citizenship, and what are the solutions?","Censorship — government restrictions limit media freedom and stifle public discourse. Commercialisation — outlets prioritise profit over public interest, leading to sensationalism. Misinformation — the spread of fake news undermines trust in media and discourages civic participation. Solutions: advocate for media independence and promote media literacy among citizens."],
+ ["Discuss the importance and challenges of independent media in Pakistan.","Independent media serves as a crucial check on government power and promotes transparency. However, independent journalists often face threats, intimidation and violence. There are success stories of investigative journalism exposing corruption and human-rights abuses. What is needed is stronger protection for journalists and the promotion of press freedom."],
+ ["Why should a Computer Science student study civics and community engagement?","1) To develop responsible citizenship: understanding constitutional rights to privacy helps design apps that respect users' data. 2) To promote ethical and inclusive technology: a student working with rural communities may design Urdu-based mobile apps for farmers instead of only English versions. 3) To strengthen problem-solving through social awareness: understanding civic structures lets students align an e-governance app with NADRA, ECP or local government systems. 4) To enhance leadership and teamwork, since civic and community projects require the same teamwork, communication and leadership skills as software development."],
+ ["What does the chapter say about the future of media and civic engagement?","Trends point to an increasing role for digital media and emerging technologies. New platforms such as podcasts, YouTube and livestreaming are being used for political discourse and activism. Greater access to information and tools will likely increase citizen engagement. Potential challenges include the digital divide, misinformation and privacy concerns. The opportunity is that innovations in media technology could enhance transparency and public participation in governance."]
+];
+var sabox = document.getElementById("sabox");
+SA.forEach(function(pair, i){
+  var d = document.createElement("div");
+  d.className = "sa";
+  d.innerHTML = "<b>" + (i+1) + ". " + pair[0] + "</b><div class='ans'>" + pair[1] + "</div><div class='hint' style='color:#9aa7b4;font-size:.78rem;margin-top:6px'>click to reveal the model answer</div>";
+  d.addEventListener("click", function(){ d.classList.toggle("open"); });
+  sabox.appendChild(d);
+});
+</script>
+</body>
+</html>
